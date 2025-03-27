@@ -1,0 +1,8 @@
+@use "../utils/mixin" as m;
+
+.container {
+	margin: 0 auto;
+	max-width: 1920px;
+	width: 100%;
+	padding: 0 var(--container-padding);
+}

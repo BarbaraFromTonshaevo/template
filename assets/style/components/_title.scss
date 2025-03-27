@@ -1,0 +1,96 @@
+@use '../utils/mixin' as m;
+
+.title-h1,
+.title-h2,
+.title-h3,
+.title-h4,
+.title-h5,
+.title-h6 {    
+    font-family: var(--font-title);
+    font-weight: 400;
+    strong{
+        font-weight: 400;
+        color: var(--text-accent);
+    }
+}
+
+.title-h1 {
+    font-size: 90px;
+    line-height: 1;
+}
+
+.title-h2 {
+    font-size: 60px;
+    line-height: 1.1;
+}
+
+.title-h3 {
+    font-size: 46px;
+    line-height: 1.1;
+}
+
+.title-h4 {
+    font-size: 36px;
+    line-height: 1.1;
+}
+
+.title-h5 {
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.title-color {
+    &__accent {
+        color: var(--text-accent);
+    }
+}
+
+@include m.laptop {
+    .title-h1 {
+        font-size: 60px;
+    }
+
+    .title-h2 {
+        font-size: 36px;
+    }
+
+    .title-h3 {
+        font-size: 28px;
+    }
+
+    .title-h4 {
+        font-size: 26px;
+    }
+
+    .title-h5 {
+        font-size: 24px;
+    }
+}
+
+@include m.tablet {
+    .title-h1 {
+        font-size: 40px;
+    }
+
+    .title-h2 {
+        font-size: 26px;
+    }
+
+    .title-h3 {
+        font-size: 22px;
+    }
+
+    .title-h4 {
+        font-size: 20px;
+    }
+
+    // .title-h5 {
+    //     font-size: 18px;
+    // }
+}
+
+@include m.mobile{
+    .title-h1 {
+        font-size: 28px;
+    }
+}
