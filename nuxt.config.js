@@ -1,32 +1,45 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineNuxtConfig } from "nuxt/config";
-import autoprefixer from "autoprefixer";
-import postCssSortMediaQueries from "postcss-sort-media-queries";
+import { defineNuxtConfig } from 'nuxt/config'
+import autoprefixer from 'autoprefixer'
+import postCssSortMediaQueries from 'postcss-sort-media-queries'
+
 export default defineNuxtConfig({
-  router: {
-    options: {
-      scrollBehaviorType: 'auto'
-    }
-  },
+  modules: ['@nuxtjs/device', '@nuxt/image', '@vueform/nuxt', '@nuxt/eslint'],
+
+  ssr: true,
+  components: [
+    // Импорт компонентов из других директорий, помимо components
+    {
+      path: '~/components',
+      pathPrefix: true,
+    },
+    { path: '~/components-base', pathPrefix: true },
+  ],
+  devtools: { enabled: true },
   app: {
     head: {
       htmlAttrs: {
-        lang: "ru",
+        lang: 'ru',
       },
-      title: "Template",
+      title: 'Template',
       meta: [
-        { charset: "utf-8" },
+        { charset: 'utf-8' },
       ],
     },
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
-  devtools: { enabled: true },
+  router: {
+    options: {
+      scrollBehaviorType: 'auto',
+    },
+  },
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE_URL,
       yandexApi: process.env.NUXT_YANDEX_API,
     },
   },
+  compatibilityDate: '2024-08-06',
   vite: {
     server: {
       port: 3000,
@@ -34,27 +47,23 @@ export default defineNuxtConfig({
     css: {
       postcss: {
         plugins: [
-          postCssSortMediaQueries({ sort: "desktop-first" }),
+          postCssSortMediaQueries({ sort: 'desktop-first' }),
           autoprefixer({
-            overrideBrowserslist: ["last 3 versions", "ie >= 10"],
+            overrideBrowserslist: ['last 3 versions', 'ie >= 10'],
           }),
         ],
       },
       preprocessorOptions: {
         scss: {
-          silenceDeprecations: ["legacy-js-api"],
+          silenceDeprecations: ['legacy-js-api'],
           additionalData: '@use "assets/style/utils/_mixin" as *;',
         },
       },
     },
   },
-
-  ssr: true,
-  modules: ["@nuxtjs/device", "@nuxt/image", '@vueform/nuxt', "@nuxt/eslint"],
-  compatibilityDate: "2024-08-06",
   eslint: {
     config: {
       stylistic: true,
     },
   },
-});
+})

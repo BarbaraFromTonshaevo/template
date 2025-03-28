@@ -2,22 +2,33 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__body">
-        <NuxtLink to="/" class="footer__logo-link">
-          <img src="/icons/webshop.svg" class="footer__logo-img"/>
+        <NuxtLink
+          to="/"
+          class="footer__logo-link"
+        >
+          <img
+            src="/icons/webshop.svg"
+            class="footer__logo-img"
+          >
         </NuxtLink>
-        <nav class="footer__nav"></nav>
+        <nav class="footer__nav" />
       </div>
       <div class="footer__bottom">
-        <div class="footer__copyright">©{{ currYear }} Template</div>
+        <div class="footer__copyright">
+          ©{{ currYear }} Template
+        </div>
         <a
           class="footer__policy"
           href="#"
           target="_blank"
-          >Политика конфиденциальности</a
+        >Политика конфиденциальности</a>
+        <a
+          class="footer__webshop"
+          href="https://webshop.ru/"
+          target="_blank"
         >
-        <a class="footer__webshop" href="https://webshop.ru/" target="_blank">
           Разработка сайта :
-            <img src="/icons/webshop.svg" />
+          <img src="/icons/webshop.svg">
         </a>
       </div>
     </div>
@@ -25,7 +36,7 @@
 </template>
 
 <script setup>
-const currYear = new Date().getFullYear();
+const currYear = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
