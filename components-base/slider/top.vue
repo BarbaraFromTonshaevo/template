@@ -1,11 +1,23 @@
 <template>
   <div class="slider__top">
-    <h3 v-if="title" class="slider__title" :class="`title-${titleSize}`">
+    <h3
+      v-if="title"
+      class="slider__title"
+      :class="`title-${titleSize}`"
+    >
       {{ title }}
     </h3>
     <div class="slider__control">
-      <ButtonIcon mode="button" class="slider__btn slider__btn--prev" sprite="arrow" />
-      <ButtonIcon mode="button" class="slider__btn slider__btn--next" sprite="arrow" />
+      <ButtonIcon
+        mode="button"
+        class="slider__btn slider__btn--prev"
+        sprite="arrow"
+      />
+      <ButtonIcon
+        mode="button"
+        class="slider__btn slider__btn--next"
+        sprite="arrow"
+      />
     </div>
   </div>
 </template>
@@ -15,17 +27,17 @@ defineProps({
   title: {
     type: String,
     required: false,
-    default: "",
+    default: '',
   },
   titleSize: {
     type: String,
     required: false,
-    default: "h3",
+    default: 'h3',
   },
-});
+})
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slider {
   &__top {
     display: grid;

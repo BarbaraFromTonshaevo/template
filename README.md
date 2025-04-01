@@ -39,6 +39,12 @@ npm run preview
 ```bash
 npm run lint
 ```
+## Компоненты
+
+Компоненты приложения расположены в двух папках components и components-base
+В папке /components лежат сложные компоненты, такие как app, page и section
+В папке /components-base лежат простые компоненты, из которых строятся компоненты из папки components
+Важно!!! компоненты из папки /components-base не могут содержать в себе компоненты из папки /components!!!
 
 ## Роутинг
 

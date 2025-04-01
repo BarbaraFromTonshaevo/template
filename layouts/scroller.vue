@@ -1,7 +1,10 @@
 <template>
   <div>
     <AppHeader />
-    <div ref="scroller" class="scroller">
+    <div
+      ref="scroller"
+      class="scroller"
+    >
       <div>
         <slot />
       </div>
@@ -11,21 +14,22 @@
 </template>
 
 <script setup>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Scrollbar from "smooth-scrollbar";
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Scrollbar from 'smooth-scrollbar'
 // import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar";
-import { useAppStateStore } from "~/stores/appState";
-const appStateStore = useAppStateStore();
-const route = useRoute();
+import { useAppStateStore } from '~/stores/appState'
 
-//сетап скроллера
-const scroller = ref(null);
-let bodyScrollBar;
+const appStateStore = useAppStateStore()
+const route = useRoute()
 
-const { setScrollbar, scrollbar } = provideScrollbar();
+// сетап скроллера
+const scroller = ref(null)
+let bodyScrollBar
 
-//функции для блокирования/разблокирования скролла
+const { setScrollbar, scrollbar } = provideScrollbar()
+
+// функции для блокирования/разблокирования скролла
 // function lockScroll() {
 //   bodyScrollBar.updatePluginOptions("modal", { open: true });
 //   bodyScrollBar.track.yAxis.hide();
@@ -39,16 +43,16 @@ onMounted(() => {
 //   class ModalPlugin extends ScrollbarPlugin {
 //     static pluginName = "modal";
 
-//     static defaultOptions = {
-//       open: false,
-//     };
+  //     static defaultOptions = {
+  //       open: false,
+  //     };
 
-//     transformDelta(delta) {
-//       return this.options.open ? { x: 0, y: 0 } : delta;
-//     }
-//   }
+  //     transformDelta(delta) {
+  //       return this.options.open ? { x: 0, y: 0 } : delta;
+  //     }
+  //   }
 
-//   Scrollbar.use(ModalPlugin);
+  //   Scrollbar.use(ModalPlugin);
 
   bodyScrollBar = Scrollbar.init(scroller.value, {
     damping: 0.1,
@@ -58,26 +62,26 @@ onMounted(() => {
     continuousScrolling: true,
     thumbMinSize: 20,
     syncCallbacks: true,
-  });
+  })
 
-  setScrollbar(bodyScrollBar);
+  setScrollbar(bodyScrollBar)
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
   setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 1000);
+    ScrollTrigger.refresh()
+  }, 1000)
 
   ScrollTrigger.scrollerProxy(scroller.value, {
     scrollTop(value) {
       if (arguments.length > 0) {
-        bodyScrollBar.scrollTop = value;
+        bodyScrollBar.scrollTop = value
       }
-      return bodyScrollBar.scrollTop;
+      return bodyScrollBar.scrollTop
     },
-  });
+  })
 
-  bodyScrollBar.addListener(ScrollTrigger.update);
-  ScrollTrigger.defaults({ scroller: scroller.value });
+  bodyScrollBar.addListener(ScrollTrigger.update)
+  ScrollTrigger.defaults({ scroller: scroller.value })
 
   function setupScroller() {
     // elements with overflow:auto
@@ -96,39 +100,40 @@ onMounted(() => {
     //     })
     // }
 
-    let initialPosition = bodyScrollBar.offset.y;
-    let currentPosition = bodyScrollBar.offset.y;
+    let initialPosition = bodyScrollBar.offset.y
+    let currentPosition = bodyScrollBar.offset.y
 
     // sticky, fixed elements
     bodyScrollBar.addListener(({ offset }) => {
-      currentPosition = offset.y;
+      currentPosition = offset.y
 
       if (initialPosition <= currentPosition) {
-        appStateStore.makeHeaderHidden();
-      } else {
-        appStateStore.makeHeaderVisible();
+        appStateStore.makeHeaderHidden()
       }
-      initialPosition = currentPosition;
-    });
+      else {
+        appStateStore.makeHeaderVisible()
+      }
+      initialPosition = currentPosition
+    })
 
-    //скроллить страницу наверх при смене роута
+    // скроллить страницу наверх при смене роута
     watch(
       () => route.path,
       () => {
         setTimeout(() => {
-          bodyScrollBar.scrollTop = 0;
-        }, 200);
-      }
-    );
+          bodyScrollBar.scrollTop = 0
+        }, 200)
+      },
+    )
   }
 
-  setupScroller();
-});
+  setupScroller()
+})
 onUnmounted(() => {
   if (scrollbar.value) {
-    scrollbar.value.destroy();
+    scrollbar.value.destroy()
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
@@ -146,5 +151,4 @@ onUnmounted(() => {
   z-index: 2 !important;
   background-color: transparent;
 }
-
 </style>

@@ -1,7 +1,16 @@
 <template>
-  <div ref="wrap" class="slider-base__wrap">
-    <SliderTop :title="title" class="slider-base__top" />
-    <div ref="slider" class="swiper slider-base">
+  <div
+    ref="wrap"
+    class="slider-base__wrap"
+  >
+    <SliderTop
+      :title="title"
+      class="slider-base__top"
+    />
+    <div
+      ref="slider"
+      class="swiper slider-base"
+    >
       <div class="swiper-wrapper slider-base__wrapper">
         <div
           v-for="(slide, index) in slides"
@@ -21,13 +30,13 @@
 </template>
 
 <script setup>
-import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import "swiper/css";
-import { ref, onMounted, onBeforeUnmount } from "vue";
-const { isMobile } = useDevice();
+import Swiper from 'swiper'
+import { Navigation } from 'swiper/modules'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import 'swiper/css'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
 defineProps({
   slides: {
     type: Array,
@@ -37,45 +46,41 @@ defineProps({
   title: {
     type: String,
     required: false,
-    default: "Фотогалерея",
+    default: 'Фотогалерея',
   },
   isLocalImages: {
     type: Boolean,
     required: false,
     default: false,
   },
-});
+})
 
 const slider = ref(null),
   wrap = ref(null),
   swiper = ref(),
   prevBtn = ref(),
-  nextBtn = ref();
+  nextBtn = ref()
 
 function updateSliderWidth() {
   if (slider.value) {
-    slider.value.style.width = "0px";
+    slider.value.style.width = '0px'
     setTimeout(() => {
-      slider.value.style.width = wrap.value.clientWidth + "px";
-    }, 0);
+      slider.value.style.width = wrap.value.clientWidth + 'px'
+    }, 0)
     // здесь можно добавить любой дополнительный код для пересчета ширины слайдера
   }
 }
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateSliderWidth);
-});
+  window.removeEventListener('resize', updateSliderWidth)
+})
 
 onMounted(() => {
   // на тот случай, если слайдер находится внутри flex и grid
-  const containerGap =
-    (wrap.value.clientWidth -
-      wrap.value.querySelector(".slider-base__top").clientWidth) /
-    2;
-  window.addEventListener("resize", updateSliderWidth);
-  slider.value.style.width = wrap.value.clientWidth + "px";
-  prevBtn.value = wrap.value.querySelector(".slider__btn--prev");
-  nextBtn.value = wrap.value.querySelector(".slider__btn--next");
+  window.addEventListener('resize', updateSliderWidth)
+  slider.value.style.width = wrap.value.clientWidth + 'px'
+  prevBtn.value = wrap.value.querySelector('.slider__btn--prev')
+  nextBtn.value = wrap.value.querySelector('.slider__btn--next')
   swiper.value = new Swiper(slider.value, {
     modules: [Navigation],
     slidesPerView: 4,
@@ -106,12 +111,12 @@ onMounted(() => {
         spaceBetween: 30,
       },
     },
-  });
-  Fancybox.bind("[data-fancybox]", {});
-});
+  })
+  Fancybox.bind('[data-fancybox]', {})
+})
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slider-base {
   & {
     width: 0;

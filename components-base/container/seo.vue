@@ -6,58 +6,70 @@
       { 'seo-text--without-shield': withoutShield },
     ]"
   >
-    <div ref="seoBody" class="seo-text__body">
-      <div ref="seoContent" class="seo-text__content">
-        <slot/>
+    <div
+      ref="seoBody"
+      class="seo-text__body"
+    >
+      <div
+        ref="seoContent"
+        class="seo-text__content"
+      >
+        <slot />
       </div>
-      <div class="seo-text__shield"/>
+      <div class="seo-text__shield" />
     </div>
-    <button class="seo-text__btn" @click="toggleText()">
+    <button
+      class="seo-text__btn"
+      @click="toggleText()"
+    >
       <span class="seo-text__close">Скрыть</span>
       <span class="seo-text__open">Читать полностью</span>
       <svg>
-        <use xlink:href="/icons/sprite.svg#arrow"/>
+        <use xlink:href="/icons/sprite.svg#arrow" />
       </svg>
     </button>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
+
 const props = defineProps({
   closedHeight: {
     type: Number,
     default: 400,
   },
-});
+})
 
-const isOpened = ref(false);
-const withoutShield = ref(false);
-const seoContent = ref(null);
-const seoBody = ref(null);
-const contentHeight = ref(0);
+const isOpened = ref(false)
+const withoutShield = ref(false)
+const seoContent = ref(null)
+const seoBody = ref(null)
+const contentHeight = ref(0)
 
 onMounted(() => {
   if (props.closedHeight > seoContent.value.clientHeight) {
-    isOpened.value = true;
-    withoutShield.value = true;
-  } else {
-    contentHeight.value = seoContent.value.clientHeight;
-    seoBody.value.style.height = props.closedHeight + "px";
+    isOpened.value = true
+    withoutShield.value = true
   }
-});
+  else {
+    contentHeight.value = seoContent.value.clientHeight
+    seoBody.value.style.height = props.closedHeight + 'px'
+  }
+})
 
 function toggleText() {
-  isOpened.value = !isOpened.value;
+  isOpened.value = !isOpened.value
   if (isOpened.value) {
-    seoBody.value.style.height = seoContent.value.clientHeight + "px";
-  } else {
-    seoBody.value.style.height = props.closedHeight + "px";
+    seoBody.value.style.height = seoContent.value.clientHeight + 'px'
+  }
+  else {
+    seoBody.value.style.height = props.closedHeight + 'px'
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .seo-text {
   position: relative;
   display: flex;
@@ -102,24 +114,24 @@ function toggleText() {
   &__close {
     display: none;
   }
-  &--opened {
-    .seo-text__shield {
+  &--opened &{
+    &__shield {
       opacity: 0;
     }
-    .seo-text__btn {
+    &__btn {
       svg {
         transform: rotate(90deg);
       }
     }
-    .seo-text__close {
+    &__close {
       display: block;
     }
-    .seo-text__open {
+    &__open {
       display: none;
     }
   }
-  &--without-shield {
-    .seo-text__btn {
+  &--without-shield &{
+    &__btn {
       display: none;
     }
   }

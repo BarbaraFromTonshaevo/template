@@ -1,123 +1,128 @@
 <template>
-  <div ref="contentBody" class="content-container">
+  <div
+    ref="contentBody"
+    class="content-container"
+  >
     <slot />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-const contentBody = ref(null);
+import { ref, onMounted } from 'vue'
+
+const contentBody = ref(null)
 onMounted(() => {
   // добавление внешней обертки для таблиц
-  contentBody.value.querySelectorAll("table").forEach((table) => {
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("table-wrap");
+  contentBody.value.querySelectorAll('table').forEach((table) => {
+    const wrapper = document.createElement('div')
+    wrapper.classList.add('table-wrap')
 
-    table.parentNode.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-  });
-});
+    table.parentNode.insertBefore(wrapper, table)
+    wrapper.appendChild(table)
+  })
+})
 </script>
 
-<style lang="scss">
-.align-left {
-  margin: 38px 40px 38px 0;
-  float: left;
-}
-
-.align-right {
-  margin: 30px 0 30px 40px;
-  float: right;
-}
-
+<style lang="scss" scoped>
 .content-container {
   color: var(--text-primary);
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+
+  :deep(.align-left) {
+    margin: 38px 40px 38px 0;
+    float: left;
+  }
+
+  :deep(.align-right) {
+    margin: 30px 0 30px 40px;
+    float: right;
+  }
+
+  :deep(h1),
+  :deep(h2),
+  :deep(h3),
+  :deep(h4),
+  :deep(h5),
+  :deep(h6) {
     font-family: var(--font-title);
     font-style: normal;
     font-weight: 400;
     color: var(--text-primary);
   }
 
-  h1,
-  h2 {
+  :deep(h1),
+  :deep(h2) {
     margin-bottom: 40px;
   }
 
-  h3,
-  h4,
-  h5,
-  h6 {
+  :deep(h3),
+  :deep(h4),
+  :deep(h5),
+  :deep(h6) {
     margin-bottom: 24px;
   }
 
-  h1 {
+  :deep(h1) {
     font-size: 78px;
     line-height: 100%;
   }
 
-  h2 {
+  :deep(h2) {
     font-size: 60px;
     line-height: 115%;
   }
 
-  h3 {
+  :deep(h3) {
     font-size: 46px;
     line-height: 110%;
   }
 
-  h4 {
+  :deep(h4) {
     font-size: 36px;
     line-height: 115%;
   }
 
-  h5 {
+  :deep(h5) {
     font-size: 30px;
     line-height: 110%;
   }
 
-  h6 {
+  :deep(h6) {
     font-size: 22px;
     line-height: 110%;
   }
 
-  * + h1,
-  * + h2 {
+  :deep(* + h1),
+  :deep(* + h2) {
     margin-top: 60px;
   }
 
-  p + p,
-  * + p,
-  * + ul,
-  * + ol,
-  * + table,
-  * + .table-wrap,
-  * + picture,
-  * + img,
-  * + iframe,
-  * + h3,
-  * + h4,
-  * + h5,
-  * + h6 {
+  :deep(p + p),
+  :deep(* + p),
+  :deep(* + ul),
+  :deep(* + ol),
+  :deep(* + table),
+  :deep(* + .table-wrap),
+  :deep(* + picture),
+  :deep(* + img),
+  :deep(* + iframe),
+  :deep(* + h3),
+  :deep(* + h4),
+  :deep(* + h5),
+  :deep(* + h6) {
     margin-top: 24px;
   }
 
-  ol,
-  ul {
+  :deep(ol),
+  :deep(ul) {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  ol {
+  :deep(ol) {
     counter-reset: num;
   }
-  ol li {
+  :deep(ol li) {
     counter-increment: num;
 
     &::before {
@@ -127,7 +132,7 @@ onMounted(() => {
     }
   }
 
-  ul li {
+  :deep(ul li) {
     position: relative;
     padding-left: 18px;
 
@@ -143,23 +148,23 @@ onMounted(() => {
     }
   }
 
-  * + table {
+  :deep(* + table) {
     margin-top: 60px;
   }
 
-  table {
+  :deep(table) {
     width: 100%;
     border-spacing: 0;
     // border: 1px solid var(--stroke-primary);
     border-collapse: unset;
   }
 
-  th,
-  td {
+  :deep(th),
+  :deep(td) {
     padding: 24px;
   }
 
-  th {
+  :deep(th) {
     font-weight: 500;
     font-size: 16px;
     color: var(--text-primary);
@@ -167,27 +172,27 @@ onMounted(() => {
     text-align: left;
   }
 
-  td{
-    color: #5B5B5B;
+  :deep(td) {
+    color: #5b5b5b;
     font-size: 16px;
   }
 
-  tr:not(:last-child) td {
-    border-bottom: 1px solid #F5F5F5;
+  :deep(tr:not(:last-child) td) {
+    border-bottom: 1px solid #f5f5f5;
   }
 
-  img {
+  :deep(img) {
     max-width: 100%;
     border-radius: var(--br-xs);
     height: auto;
   }
 
-  iframe {
+  :deep(iframe) {
     max-width: 100%;
     height: auto;
   }
 
-  a {
+  :deep(a) {
     color: var(--btn-primary);
     text-decoration: underline;
     text-underline-offset: 1px;
@@ -201,104 +206,107 @@ onMounted(() => {
   }
 }
 @include laptop {
-  h2 {
+    .content-container{
+        :deep(h2) {
     font-size: 46px;
     line-height: 115%;
   }
 
-  h3 {
+  :deep(h3) {
     font-size: 36px;
     line-height: 110%;
   }
 
-  h4 {
+  :deep(h4) {
     font-size: 30px;
     line-height: 115%;
   }
 
-  h5 {
+  :deep(h5) {
     font-size: 22px;
     line-height: 110%;
   }
 
-  h6 {
+  :deep(h6) {
     font-size: 20px;
     line-height: 110%;
   }
+    }
+
 }
 
 @include tablet {
   .content-container {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    :deep(h1),
+    :deep(h2),
+    :deep(h3),
+    :deep(h4),
+    :deep(h5),
+    :deep(h6) {
       hyphens: auto;
     }
 
-    h1 {
+    :deep(h1) {
       font-size: 38px;
     }
 
-    h2 {
+    :deep(h2) {
       font-size: 26px;
     }
 
-    h3 {
+    :deep(h3) {
       font-size: 22px;
     }
 
-    h4 {
+    :deep(h4) {
       font-size: 20px;
     }
 
-    h5 {
+    :deep(h5) {
       font-size: 18px;
     }
-    h6 {
+    :deep(h6) {
       font-size: 16px;
     }
 
-    h1,
-    h2 {
+    :deep(h1),
+    :deep(h2) {
       margin-bottom: 24px;
     }
 
-    * + h1,
-    * + h2 {
+    :deep(* + h1),
+    :deep(* + h2) {
       margin-top: 40px;
     }
 
-    h3,
-    h4,
-    h5,
-    h6 {
+    :deep(h3),
+    :deep(h4),
+    :deep(h5),
+    :deep(h6) {
       margin-bottom: 18px;
     }
 
-    p + p,
-    * + p,
-    * + ul,
-    * + ol,
-    * + h3,
-    * + h4,
-    * + h5,
-    * + h6,
-    * + .table-wrap {
+    :deep(p + p),
+    :deep(* + p),
+    :deep(* + ul),
+    :deep(* + ol),
+    :deep(* + h3),
+    :deep(* + h4),
+    :deep(* + h5),
+    :deep(* + h6),
+    :deep(* + .table-wrap) {
       margin-top: 16px;
     }
 
-    * + img {
+    :deep(* + img) {
       margin: 16px auto 0;
     }
 
-    img {
+    :deep(img) {
       float: none;
     }
   }
-  .table-wrap {
+  :deep(.table-wrap) {
     overflow-x: auto;
     padding-right: 20px;
     margin-right: -20px;
