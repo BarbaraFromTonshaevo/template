@@ -1,109 +1,57 @@
 @use "mixin" as m;
+/*paint style*/ 
+:root{
+    --bg-light: #ffffff;
+    --bg-primary: #f8f9f8;
+    --bg-primary-t1: #ffffff00;
+    --bg-primary-t10: #ffffff1a;
+    --bg-primary-hover: #eff1ef;
+    --bg-secondary: #eff1ef;
+    --bg-secondary-dark: #e7ebe8;
+    --bg-tertiary: #2b372e;
+    --bg-tertiary-t20: #1a271e33;
+    --bg-tertiary-t20-hover: #d0d6d2;
+    --bg-accent: #245437;
+    --bg-accent-hover: #4c7c5f;
+    --bg-accent-t10: #2454371a;
+    --bg-accent-t10-hover: #2454374d;
+    --bg-accent-2: #dae1dd;
 
+    --text-primary: #1a271e;
+    --text-primary-t35: #1a271e4d;
+    --text-secondary: #ffffff;
+    --text-secondary-t70: #ffffffb3;
+    --text-tertiary: #505451;
+    --text-accent: #1d6439;
+    --text-accent-2: #72ce75;
+    --text-visited: #b649e8;
+
+    --icon-primary: #303230;
+    --icon-secondary: #ffffff;
+    --icon-secondary-t50: #ffffff80;
+    --icon-tertiary: #748578;
+    --icon-tertiary-t30: #7485794d;
+    --icon-accent: #207140;
+    --icon-accent-2: #72ce75;
+
+    --stroke-primary: #f7f8fd;
+    --stroke-primary-dark: #dedee3;
+    --stroke-secondary: #ffffff;
+    --stroke-secondary-t10: #ffffff1a;
+    --stroke-tertiary: #1a271e;
+    --stroke-tertiary-t5: #3032301a;
+    --stroke-accent: #245437;
+    
+    --system-error-dark: #cc4949;
+    --system-error-light: #f16363;
+    --system-error-dark-t30: #cc49494d;
+}
+  
 :root {
-
-    // button primary
-    --btn-prim-bg: #CB2D2D;
-    --btn-prim-text: #FFFFFF;
-    --btn-prim-border: #CB2D2D;
-    --btn-prim-icon: #FFFFFF;
-
-    --btn-prim-bg-hover: #A30505;
-    --btn-prim-text-hover: #FFFFFF;
-    --btn-prim-border-hover: #A30505;
-    --btn-prim-icon-hover: #FFFFFF; 
-
-    --btn-prim-bg-focus: #CB2D2D;
-    --btn-prim-text-focus: #FFFFFF;
-    --btn-prim-border-focus: #CB2D2D;
-    --btn-prim-icon-focus: #FFFFFF; 
-
-    --btn-prim-bg-disabled: #EFEFEF;
-    --btn-prim-text-disabled: #818181;
-    --btn-prim-border-disabled: #EFEFEF;
-    --btn-prim-icon-disabled: #818181;  
-
-    // button secondary
-    --btn-sec-bg: #EFEFEF;
-    --btn-sec-text: #2F2F2F;
-    --btn-sec-border: #EFEFEF;
-    --btn-sec-icon: #2F2F2F;
-
-    --btn-sec-bg-hover: #CB2D2D;
-    --btn-sec-text-hover: #FFFFFF;
-    --btn-sec-border-hover: #CB2D2D;
-    --btn-sec-icon-hover: #FFFFFF; 
-
-    --btn-sec-bg-focus: #CB2D2D;
-    --btn-sec-text-focus: #FFFFFF;
-    --btn-sec-border-focus: #CB2D2D;
-    --btn-sec-icon-focus: #FFFFFF; 
-
-    --btn-sec-bg-disabled: #EFEFEF;
-    --btn-sec-text-disabled: #818181;
-    --btn-sec-border-disabled: #EFEFEF;
-    --btn-sec-icon-disabled: #818181;     
-
-    // button tertiary
-    --btn-tert-bg: transparent;
-    --btn-tert-text: #433C3C;
-    --btn-tert-border: #E0E0E0;
-    --btn-tert-icon: #433C3C;
-
-    --btn-tert-bg-hover: transparent;
-    --btn-tert-text-hover: #433C3C;
-    --btn-tert-border-hover: #CB2D2D;
-    --btn-tert-icon-hover: #433C3C; 
-
-    --btn-tert-bg-focus: transparent;
-    --btn-tert-text-focus: #433C3C;
-    --btn-tert-border-focus: #CB2D2D;
-    --btn-tert-icon-focus: #433C3C; 
-
-    --btn-tert-bg-disabled: transparent;
-    --btn-tert-text-disabled: #818181;
-    --btn-tert-border-disabled: #EFEFEF;
-    --btn-tert-icon-disabled: #818181;  
-
-
     --footer-bg: #FFFFFF;
     --header-bg: #F5F5F5;
     --modal-bg: #2F2F2F;
-
-    // Common colors
-    --text-primary: #433C3C;
-    --text-primary-additional: #303030;
-    --text-default: #818181;
-    --text-default-secondary: #666666;
-    --text-default-additional: #B4B4B4;
-    --text-contrast: #FFFFFF;
-    --text-accent: #CB2D2D;
-    --text-footer: #CBCBCB;
-    
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #EFEFEF;
-    --bg-modal: rgba(30, 30, 30, 0.8);
-
-    --btn-primary: #CB2D2D;
-    --btn-primary-hover: #A30505;
-    --btn-secondary: #EFEFEF;
-    --btn-secondary-hover: #CB2D2D;
-    --btn-tertiary: #FFFFFF;
-    --btn-disabled: #E0E0E0;
-    --btn-dark: rgba(208, 208, 208, 0.1);
-
-    --stroke-primary: #E0E0E0;
-    --stroke-secondary: #A1A1A1;
-    --stroke-tertiary: #EDEDED;
-    --stroke-contrast: #CB2D2D;
-
-    --icons-white: #FFFFFF;;
-    --icons-black: #433C3C;
-    --icons-red: #CB2D2D;
-    --icons-grey: #B4B4B4;
-
     --system-alert: #CB2D2D;
-
     --marker: #CB2D2D;
 
     // Number variables
@@ -124,8 +72,8 @@
 
     // Шрифты
 
-    --font-title: 'Mariupol', sans-serif;
-    --font: 'Raleway', sans-serif;
+    --font-title: 'Open Sans', sans-serif;
+    --font: 'Inter', sans-serif;
 }
 
 @include m.laptop {

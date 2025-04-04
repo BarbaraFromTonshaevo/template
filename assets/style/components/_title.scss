@@ -1,96 +1,166 @@
 @use '../utils/mixin' as m;
 
-.title-h1,
-.title-h2,
-.title-h3,
-.title-h4,
-.title-h5,
-.title-h6 {    
-    font-family: var(--font-title);
-    font-weight: 400;
-    strong{
-        font-weight: 400;
-        color: var(--text-accent);
-    }
-}
-
-.title-h1 {
-    font-size: 90px;
-    line-height: 1;
-}
-
-.title-h2 {
-    font-size: 60px;
-    line-height: 1.1;
-}
-
-.title-h3 {
-    font-size: 46px;
-    line-height: 1.1;
-}
-
-.title-h4 {
+/*text style*/ 
+.title-h1-accent {
+    font-size: 72px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    letter-spacing: 0em;
+    line-height: 110.00000238418579%;
+  }
+  .title-h1 {
+    font-size: 44px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    letter-spacing: 0em;
+    line-height: 110.00000238418579%;
+  }
+  .title-h2 {
     font-size: 36px;
-    line-height: 1.1;
-}
+    font-family: 'Inter';
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 120.00000476837158%;
+  }
+  .title-h3 {
+    font-size: 24px;
+    font-family: 'Inter';
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 125%;
+  }
+  .title-h4 {
+    font-size: 20px;
+    font-family: 'Inter';
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 139.9999976158142%;
+  }
+  .title-h4-bold {
+    font-size: 20px;
+    font-family: 'Inter';
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    line-height: 139.9999976158142%;
+  }
+  .title-accent-l {
+    font-size: 28px;
+    font-family: 'Inter';
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 120.00000476837158%;
+  }
 
-.title-h5 {
-    font-size: 30px;
-    line-height: 1.1;
-}
 
-.title-color {
-    &__accent {
-        color: var(--text-accent);
-    }
-}
-
-@include m.laptop {
-    .title-h1 {
-        font-size: 60px;
-    }
-
-    .title-h2 {
-        font-size: 36px;
-    }
-
-    .title-h3 {
-        font-size: 28px;
-    }
-
-    .title-h4 {
-        font-size: 26px;
-    }
-
-    .title-h5 {
-        font-size: 24px;
-    }
-}
-
-@include m.tablet {
-    .title-h1 {
-        font-size: 40px;
-    }
-
-    .title-h2 {
-        font-size: 26px;
-    }
-
-    .title-h3 {
+@include m.laptop{
+    .title-h1-accent {
+        font-size: 52px;
+      }
+      .title-h1 {
+        font-size: 38px;
+      }
+      .title-h2 {
+        font-size: 30px;
+      }
+      .title-h3 {
         font-size: 22px;
-    }
-
-    .title-h4 {
+      }
+      .title-h4 {
         font-size: 20px;
-    }
-
-    // .title-h5 {
-    //     font-size: 18px;
-    // }
+      }
+      .title-h4-bold {
+        font-size: 20px;
+      }
+      .title-accent-l {
+        font-size: 26px;
+      }
 }
 
 @include m.mobile{
+    .title-h1-accent {
+        font-size: 34px;
+    }
     .title-h1 {
         font-size: 28px;
+        line-height: 120.00000476837158%;
+    }
+    .title-h2 {
+        font-size: 24px;
+        line-height: 129.99999523162842%;
+    }
+    .title-h3 {
+        font-size: 20px;
+        line-height: 125%;
+    }
+    .title-h4 {
+        font-size: 18px;
+        line-height: 139.9999976158142%;
+    }
+    .title-h4-bold {
+        font-size: 18px;
+        line-height: 139.9999976158142%;
+    }
+    .title-accent-l {
+        font-size: 24px;
+        line-height: 120.00000476837158%;
     }
 }
+ 
+//   .text-nav {
+//     font-size: 16px;
+//     font-family: 'Inter';
+//     font-weight: 400;
+//     letter-spacing: 0.01em;
+//     line-height: 110.00000238418579%;
+//   }
+//   .text-nav-semibold {
+//     font-size: 16px;
+//     font-family: 'Inter';
+//     font-weight: 700;
+//     letter-spacing: 0.01em;
+//     line-height: 110.00000238418579%;
+//   }
+//   .title-button {
+//     font-size: 15px;
+//     font-family: 'Inter';
+//     font-weight: 500;
+//     letter-spacing: 0em;
+//   }
+//   .title-table-header {
+//     font-size: 14px;
+//     font-family: 'Inter';
+//     font-weight: 400;
+//     letter-spacing: 0.01em;
+//     line-height: 125%;
+//     text-transform: uppercase;
+//   }
+//   .mobile-nav {
+//     font-size: 15px;
+//     font-family: 'Inter';
+//     font-weight: 400;
+//     letter-spacing: 0.01em;
+//     line-height: 110.00000238418579%;
+//   }
+//   .mobile-nav-semibold {
+//     font-size: 15px;
+//     font-family: 'Inter';
+//     font-weight: 700;
+//     letter-spacing: 0.01em;
+//     line-height: 110.00000238418579%;
+//   }
+//   .mobile-button {
+//     font-size: 15px;
+//     font-family: 'Inter';
+//     font-weight: 500;
+//     letter-spacing: 0em;
+//   }
+//   .mobile-table-header {
+//     font-size: 12px;
+//     font-family: 'Inter';
+//     font-weight: 400;
+//     letter-spacing: 0.01em;
+//     line-height: 125%;
+//     text-transform: uppercase;
+//   }
+  
+  

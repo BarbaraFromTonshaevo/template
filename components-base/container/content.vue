@@ -26,74 +26,23 @@ onMounted(() => {
 <style lang="scss" scoped>
 .content-container {
   color: var(--text-primary);
+  font-size: 17px;
+  font-family: "Inter";
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 139.9999976158142%;
+  color: var(--text-tertiary);
 
-  :deep(.align-left) {
-    margin: 38px 40px 38px 0;
-    float: left;
-  }
-
-  :deep(.align-right) {
-    margin: 30px 0 30px 40px;
-    float: right;
-  }
-
-  :deep(h1),
-  :deep(h2),
-  :deep(h3),
-  :deep(h4),
-  :deep(h5),
-  :deep(h6) {
-    font-family: var(--font-title);
-    font-style: normal;
-    font-weight: 400;
-    color: var(--text-primary);
-  }
-
-  :deep(h1),
-  :deep(h2) {
-    margin-bottom: 40px;
-  }
-
-  :deep(h3),
-  :deep(h4),
-  :deep(h5),
-  :deep(h6) {
-    margin-bottom: 24px;
-  }
-
-  :deep(h1) {
-    font-size: 78px;
-    line-height: 100%;
-  }
-
-  :deep(h2) {
-    font-size: 60px;
-    line-height: 115%;
-  }
-
-  :deep(h3) {
-    font-size: 46px;
-    line-height: 110%;
-  }
-
-  :deep(h4) {
-    font-size: 36px;
-    line-height: 115%;
-  }
-
-  :deep(h5) {
-    font-size: 30px;
-    line-height: 110%;
-  }
-
-  :deep(h6) {
-    font-size: 22px;
-    line-height: 110%;
-  }
-
-  :deep(* + h1),
-  :deep(* + h2) {
-    margin-top: 60px;
+  :deep(p),
+  :deep(a),
+  :deep(ol),
+  :deep(ul),
+  :deep(li) {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
   }
 
   :deep(p + p),
@@ -104,14 +53,89 @@ onMounted(() => {
   :deep(* + .table-wrap),
   :deep(* + picture),
   :deep(* + img),
-  :deep(* + iframe),
+  :deep(* + iframe) {
+    margin-top: 24px;
+  }
+  // Заголовки
+  :deep(h1) {
+    font-size: 44px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    letter-spacing: 0em;
+    line-height: 110.00000238418579%;
+    color: var(--text-primary);
+  }
+
+  :deep(h2) {
+    font-size: 36px;
+    font-family: "Inter";
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 120.00000476837158%;
+    color: var(--text-primary);
+  }
+
+  :deep(h3) {
+    font-size: 24px;
+    font-family: "Inter";
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 125%;
+    color: var(--text-primary);
+  }
+
+  :deep(h4) {
+    font-size: 20px;
+    font-family: "Inter";
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 139.9999976158142%;
+    color: var(--text-primary);
+  }
+
+  :deep(h5) {
+    font-size: 20px;
+    font-family: "Inter";
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 139.9999976158142%;
+    color: var(--text-primary);
+  }
+
+  :deep(h6) {
+    font-size: 20px;
+    font-family: "Inter";
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 139.9999976158142%;
+    color: var(--text-primary);
+  }
+
+  :deep(h1),
+  :deep(h2) {
+    margin-bottom: 32px;
+  }
+
+  :deep(h3),
+  :deep(h4),
+  :deep(h5),
+  :deep(h6) {
+    margin-bottom: 28px;
+  }
+
+  :deep(* + h1),
+  :deep(* + h2) {
+    margin-top: 60px;
+  }
+
   :deep(* + h3),
   :deep(* + h4),
   :deep(* + h5),
   :deep(* + h6) {
-    margin-top: 24px;
+    margin-top: 54px;
   }
 
+  //   Списки
   :deep(ol),
   :deep(ul) {
     display: flex;
@@ -119,19 +143,20 @@ onMounted(() => {
     gap: 12px;
   }
 
+  //   Нумерованный список
   :deep(ol) {
     counter-reset: num;
   }
   :deep(ol li) {
-    counter-increment: num;
-
-    &::before {
-      content: counter(num) ")";
-      margin-right: 10px;
-      color: var(--marker);
+    list-style: decimal;
+    list-style-position: outside;
+    margin-left: 18px;
+    &::marker {
+      color: var(--icon-tertiary-t30);
     }
   }
 
+  //   Ненумерованный список
   :deep(ul li) {
     position: relative;
     padding-left: 18px;
@@ -141,13 +166,14 @@ onMounted(() => {
       position: absolute;
       left: 0;
       top: 7px;
-      width: 8px;
+      width: 6px;
       aspect-ratio: 1;
-      background-color: var(--marker);
+      background-color: var(--icon-tertiary-t30);
       border-radius: 50%;
     }
   }
 
+  //  Таблица
   :deep(* + table) {
     margin-top: 60px;
   }
@@ -161,30 +187,40 @@ onMounted(() => {
 
   :deep(th),
   :deep(td) {
-    padding: 24px;
+    padding: 12px 10px;
   }
 
   :deep(th) {
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--text-primary);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-tertiary);
     background-color: var(--bg-secondary);
     text-align: left;
+    text-transform: uppercase;
   }
 
   :deep(td) {
-    color: #5b5b5b;
-    font-size: 16px;
+    color: var(--text-primary);
+    font-size: 17px;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--stroke-tertiary-t5);
   }
 
-  :deep(tr:not(:last-child) td) {
-    border-bottom: 1px solid #f5f5f5;
-  }
-
+  // Изображения
   :deep(img) {
     max-width: 100%;
     border-radius: var(--br-xs);
     height: auto;
+  }
+
+  :deep(.align-left) {
+    margin: 38px 40px 38px 0;
+    float: left;
+  }
+
+  :deep(.align-right) {
+    margin: 30px 0 30px 40px;
+    float: right;
   }
 
   :deep(iframe) {
@@ -192,108 +228,76 @@ onMounted(() => {
     height: auto;
   }
 
+  // Ссылки
   :deep(a) {
-    color: var(--btn-primary);
     text-decoration: underline;
-    text-underline-offset: 1px;
+    text-underline-offset: 3px;
     transition: color 0.3s ease;
-
+    &:visited {
+      color: var(--text-visited);
+    }
     @include hover {
       &:hover {
-        color: var(--btn-primary-hover);
+        color: var(--text-accent-2);
       }
     }
   }
 }
 @include laptop {
-    .content-container{
-        :deep(h2) {
-    font-size: 46px;
-    line-height: 115%;
+  .content-container {
   }
-
-  :deep(h3) {
-    font-size: 36px;
-    line-height: 110%;
-  }
-
-  :deep(h4) {
-    font-size: 30px;
-    line-height: 115%;
-  }
-
-  :deep(h5) {
-    font-size: 22px;
-    line-height: 110%;
-  }
-
-  :deep(h6) {
-    font-size: 20px;
-    line-height: 110%;
-  }
-    }
-
 }
 
-@include tablet {
+@include mobile {
   .content-container {
+    font-size: 16px;
+
     :deep(h1),
     :deep(h2),
     :deep(h3),
     :deep(h4),
     :deep(h5),
     :deep(h6) {
-      hyphens: auto;
+      margin-bottom: 24px;
+    }
+    :deep(* + h1),
+    :deep(* + h2),
+    :deep(* + h3),
+    :deep(* + h4),
+    :deep(* + h5),
+    :deep(* + h6) {
+      margin-top: 40px;
     }
 
+    // Заголовки
     :deep(h1) {
-      font-size: 38px;
+      font-size: 34px;
     }
 
     :deep(h2) {
-      font-size: 26px;
+      font-size: 28px;
     }
 
     :deep(h3) {
-      font-size: 22px;
+      font-size: 20px;
     }
 
     :deep(h4) {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     :deep(h5) {
       font-size: 18px;
     }
+
     :deep(h6) {
-      font-size: 16px;
-    }
-
-    :deep(h1),
-    :deep(h2) {
-      margin-bottom: 24px;
-    }
-
-    :deep(* + h1),
-    :deep(* + h2) {
-      margin-top: 40px;
-    }
-
-    :deep(h3),
-    :deep(h4),
-    :deep(h5),
-    :deep(h6) {
-      margin-bottom: 18px;
+      font-size: 18px;
     }
 
     :deep(p + p),
     :deep(* + p),
     :deep(* + ul),
     :deep(* + ol),
-    :deep(* + h3),
-    :deep(* + h4),
-    :deep(* + h5),
-    :deep(* + h6),
     :deep(* + .table-wrap) {
       margin-top: 16px;
     }
