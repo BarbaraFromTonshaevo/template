@@ -59,30 +59,30 @@
 </template>
 
 <script setup>
-const emits = defineEmits(['success', 'error'])
+// const emits = defineEmits(['success', 'error'])
 
 function sendForm(form) {
   const formJSON = form.data
   formJSON['webform_id'] = 'order'
   formJSON['send_target'] = document.title
-  postForm(formJSON, form)
+//   postForm(formJSON, form)
 }
 
-async function postForm(formJSON, form) {
-  // formJSON
-  // successCallback
-  // errorCallback
-  usePostForm(
-    formJSON,
-    () => {
-      emits('success')
-      form.reset()
-    },
-    (e) => {
-      emits('error', e)
-    },
-  )
-}
+// async function postForm(formJSON, form) {
+//   // formJSON
+//   // successCallback
+//   // errorCallback
+//   usePostForm(
+//     formJSON,
+//     () => {
+//       emits('success')
+//       form.reset()
+//     },
+//     (e) => {
+//       emits('error', e)
+//     },
+//   )
+// }
 </script>
 
 <style lang="scss" scoped>

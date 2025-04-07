@@ -78,10 +78,10 @@ $color: #0cf;
   border-radius: 10px;
   color: var(--btn-text);
   font: 500 15px/1 var(--font);
-  transition: all var(--time);
   position: relative;
   overflow: hidden;
   z-index: 1;
+  transition: color var(--time), background-color var(--time);
   &:after {
     content: "";
     position: absolute;
@@ -101,9 +101,9 @@ $color: #0cf;
     width: 0%;
     height: 100%;
     background-color: var(--btn-bg-hover);
-    transition: all var(--time);
     border-radius: 10px;
     z-index: -1;
+    transition: background-color var(--time), width var(--time);
   }
   &:disabled,
   &--disabled {
@@ -134,8 +134,8 @@ $color: #0cf;
 
   /*Tertiary button*/
   &--tertiary {
-    --btn-bg: var(--bg-prim);
-    --btn-bg-hover: var(--btn-tert-bg-hover);
+    --btn-bg: var(--bg-primary);
+    --btn-bg-hover: var(--bg-primary-hover);
     --btn-text: var(--text-accent);
     --btn-text-hover: var(--text-accent);
     box-shadow: 0 0 20px rgba(0,0,0,0.05);

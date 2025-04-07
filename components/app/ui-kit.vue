@@ -1,120 +1,217 @@
 <template>
-  <section>
+  <div class="ui-kit">
     <div class="container">
       <h1 class="title-h1 ui-kit-mb--large">
         СТРАНИЦА UI-KIT
       </h1>
-      <section class="ui-kit-mb--large">
+    </div>
+    <section class="ui-kit__btns">
+      <div class="container">
         <h2 class="title-h2 ui-kit-mb">
           Кнопки
         </h2>
-        <h3 class="title-h3 ui-kit-mb">
-          Primary button
-        </h3>
-        <div class="ui-kit-flex">
-          <ButtonBase
-            name="primary"
-            mode="button"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Primary button
+          </h3>
+          <div class="ui-kit__flex">
+            <ButtonBase
+              name="primary"
+              mode="button"
+            >
+              Заказать
+            </ButtonBase>
 
-          <ButtonBase
-            name="primary"
-            mode="button"
-            :is-disabled="true"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
+            <ButtonBase
+              name="primary"
+              mode="button"
+              :is-disabled="true"
+            >
+              Заказать
+            </ButtonBase>
 
-          <ButtonBase
-            name="primary"
-            mode="button"
-            class="ui-kit-mb"
-          >
-            Заказать
-            <UiSaveState
-              :state="iconState"
-              :color="iconColor"
+            <ButtonBase
+              name="primary"
+              mode="button"
+            >
+              Заказать
+              <UiSaveState
+                :state="iconState"
+                :color="iconColor"
+              />
+            </ButtonBase>
+
+            <ButtonBase
+              name="primary"
+              mode="button"
+              :is-disabled="true"
+            >
+              Заказать
+              <UiSaveState :state="iconState" />
+            </ButtonBase>
+          </div>
+        </div>
+
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Secondary button
+          </h3>
+          <div class="ui-kit__flex">
+            <ButtonBase
+              name="secondary"
+              mode="button"
+            >
+              Заказать
+            </ButtonBase>
+
+            <ButtonBase
+              name="secondary"
+              mode="button"
+              :is-disabled="true"
+            >
+              Заказать
+            </ButtonBase>
+          </div>
+        </div>
+
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Tertiary button
+          </h3>
+          <div class="ui-kit__flex">
+            <ButtonBase
+              name="tertiary"
+              mode="button"
+            >
+              Заказать
+            </ButtonBase>
+
+            <ButtonBase
+              name="tertiary"
+              mode="button"
+              :is-disabled="true"
+            >
+              Заказать
+            </ButtonBase>
+          </div>
+        </div>
+
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Show more button
+          </h3>
+          <div class="ui-kit__flex">
+            <ButtonShowMore class="ui-kit-mb" />
+          </div>
+        </div>
+
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Slider button
+          </h3>
+          <p class="text-s ui-kit-mb">
+            Для повышения показателей доступности рекоментдуется у данных компонент проставлятьатрибут aria-label
+          </p>
+          <div class="ui-kit__flex">
+            <ButtonSlider
+              name="light"
+              direction="right"
+              aria-label="Перейти к предыдущему слайду"
             />
-          </ButtonBase>
-
-          <ButtonBase
-            name="primary"
-            mode="button"
-            :is-disabled="true"
-            class="ui-kit-mb"
-          >
-            Заказать
-            <UiSaveState :state="iconState" />
-          </ButtonBase>
+            <ButtonSlider
+              name="dark"
+              direction="right"
+              aria-label="Перейти к предыдущему слайду"
+            />
+            <ButtonSlider
+              name="light"
+              direction="left"
+              disabled="true"
+              aria-label="Перейти к следующему слайду"
+            />
+            <ButtonSlider
+              name="dark"
+              direction="left"
+              disabled="true"
+              aria-label="Перейти к следующему слайду"
+            />
+          </div>
         </div>
 
-        <h3 class="title-h3 ui-kit-mb">
-          Secondary button
-        </h3>
-        <div class="ui-kit-flex">
-          <ButtonBase
-            name="secondary"
-            mode="button"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Arrow button
+          </h3>
+          <p class="text-s ui-kit-mb">
+            Для повышения показателей доступности рекоментдуется у данных компонент проставлятьатрибут aria-label
+          </p>
+          <div class="ui-kit__flex">
+            <ButtonArrow
+              name="primary"
+              direction="left"
+            />
+            <ButtonArrow
+              name="secondary"
+              direction="right"
+            />
+            <ButtonArrow
+              name="tertiary"
+              direction="left"
+            />
 
-          <ButtonBase
-            name="secondary"
-            mode="button"
-            :is-disabled="true"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
+            <ButtonArrow
+              name="primary"
+              direction="top"
+              :disabled="true"
+            />
+            <ButtonArrow
+              name="secondary"
+              direction="right"
+              :disabled="true"
+            />
+            <ButtonArrow
+              name="tertiary"
+              direction="bottom"
+              :disabled="true"
+            />
+          </div>
         </div>
 
-        <h3 class="title-h3 ui-kit-mb">
-          Tertiary button
-        </h3>
-        <div class="ui-kit-flex">
-          <ButtonBase
-            name="tertiary"
-            mode="button"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
-
-          <ButtonBase
-            name="tertiary"
-            mode="button"
-            :is-disabled="true"
-            class="ui-kit-mb"
-          >
-            Заказать
-          </ButtonBase>
+        <div class="ui-kit__wrap">
+          <h3 class="title-h3 ui-kit-mb">
+            Up button
+          </h3>
+          <div class="ui-kit__flex">
+            <ButtonUp />
+          </div>
         </div>
-        <h3 class="title-h3 ui-kit-mb">
-          Show more button
-        </h3>
-        <ButtonShowMore />
-      </section>
+      </div>
+    </section>
+    <section class="ui-kit__inputs">
+      <div class="container">
+        <h2 class="title-h2">
+          Поля
+        </h2>
+        <FormFeedback />
+      </div>
+    </section>
+    <section class="ui-kit__accordion">
+      <div class="container">
+        <h2 class="title-h2 ui-kit-mb">
+          Аккордеон
+        </h2>
+        <UiAccordion
+          :data="uiKitAccordionData"
+          class="ui-kit__accordion-wrap"
+        />
+      </div>
+    </section>
 
-      <h2 class="title-h2">
-        Поля
-      </h2>
-      <h2 class="title-h2">
-        Аккордеон
-      </h2>
-      <h2 class="title-h2">
-        Карточки
-      </h2>
-      <h2 class="title-h2 ui-kit-mb--large">
-        Текстовая страница
-      </h2>
-
-      <div>
+    <section class="ui-kit__text-page">
+      <div class="container">
+        <h2 class="title-h2 ui-kit-mb--large">
+          Текстовая страница
+        </h2>
         <ContainerContent class="example-container">
           <h1>H1 Header</h1>
           <p>
@@ -258,10 +355,13 @@
           <h4><strong>Ссылки</strong></h4>
           <p><a href="#">ссылка</a></p>
         </ContainerContent>
-        <UiGallery :list="exampleList" />
+        <UiGallery
+          :list="exampleList"
+          class="ui-kit__slider"
+        />
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -272,6 +372,16 @@ const exampleList = [
   '/images/example/example-4.jpg',
   '/images/example/example-5.jpg',
   '/images/example/example-6.jpg',
+]
+const uiKitAccordionData = [
+  {
+    title: 'Доставка на наш склад',
+    body: 'Заберём товары с вашего склада или у поставщиков по всей России. Доставим на наш склад для надёжного хранения',
+  },
+  {
+    title: 'Что такое склад класса B?',
+    body: 'Склад класса B — это современное складское помещение, которое соответствует высоким стандартам качества. Оно предлагает оптимальное соотношение цены и качества, включая хорошую инфраструктуру, удобное расположение и базовые условия для хранения грузов',
+  },
 ]
 const iconState = ref('initial')
 const iconColor = ref('var(--icon-tertiary)')
@@ -289,15 +399,35 @@ setTimeout(() => {
 .example-container {
   max-width: 1097px;
 }
-.ui-kit-mb {
-  margin-bottom: 20px;
-  &--large{
-    margin-bottom: 35px;
+.ui-kit {
+  &__btns,
+  &__accordion {
+    background-color: #d7d7d7;
+    padding: 30px 0;
   }
-}
-.ui-kit-flex{
+  &__inputs,
+  &__text-page{
+    padding: 30px 0;
+  }
+  &__accordion-wrap{
+    max-width: 500px;
+  }
+  &__slider{
+    margin-top: 30px;
+  }
+  &-mb {
+    margin-bottom: 20px;
+    &--large {
+      margin-bottom: 35px;
+    }
+  }
+  &__flex {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+  }
+  &__wrap{
+    margin-bottom: 30px;
+  }
 }
 </style>

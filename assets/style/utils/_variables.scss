@@ -20,6 +20,7 @@
     --text-primary: #1a271e;
     --text-primary-t35: #1a271e4d;
     --text-secondary: #ffffff;
+    --text-secondary-t50: #ffffff80;
     --text-secondary-t70: #ffffffb3;
     --text-tertiary: #505451;
     --text-accent: #1d6439;
@@ -48,7 +49,7 @@
 }
   
 :root {
-    --footer-bg: #FFFFFF;
+    --footer-bg: var(--bg-tertiary);
     --header-bg: #F5F5F5;
     --modal-bg: #2F2F2F;
     --system-alert: #CB2D2D;
