@@ -159,21 +159,20 @@
     line-height: 1.1;
     letter-spacing: 0.01;
     transition: color var(--time);
-  }
-
-  &__nav-link--accent{
-    color: var(--text-accent-2);
-    display: flex;
-    &::after{
-        content: '';
-        display: block;
-        width: 20px;
-        height: 20px;
-        mask-repeat: no-repeat;
-        mask-position: center;
-        mask-size: contain;
-        mask-image: url(/icons/arrow-transition.svg);
-        background-color: var(--icon-accent-2);
+    &--accent{
+        color: var(--text-accent-2);
+        display: flex;
+        &::after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+            mask-image: url(/icons/arrow-transition.svg);
+            background-color: var(--icon-accent-2);
+        }
     }
   }
 

@@ -1,59 +1,43 @@
 <template>
   <div>
-    <AppHeader />
     <div
       ref="scroller"
       class="scroller"
     >
+      <AppHeader ref="headerAppElem" />
       <div>
         <slot />
       </div>
       <AppFooter />
     </div>
+    <ButtonUp
+      class="layout__btn-up"
+      @click="scrollUp"
+    />
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Scrollbar from 'smooth-scrollbar'
 // import Scrollbar, { ScrollbarPlugin } from "smooth-scrollbar";
-import { useAppStateStore } from '~/stores/appState'
+// import { useAppStateStore } from '~/stores/appState'
 
-const appStateStore = useAppStateStore()
+// const appStateStore = useAppStateStore()
 const route = useRoute()
-
+const headerAppElem = ref(null)
 // сетап скроллера
 const scroller = ref(null)
 let bodyScrollBar
 
 const { setScrollbar, scrollbar } = provideScrollbar()
-
-// функции для блокирования/разблокирования скролла
-// function lockScroll() {
-//   bodyScrollBar.updatePluginOptions("modal", { open: true });
-//   bodyScrollBar.track.yAxis.hide();
-// }
-
-// function unlockScroll() {
-//   bodyScrollBar.updatePluginOptions("modal", { open: false });
-// }
-
+function scrollUp() {
+  bodyScrollBar.scrollTo(0, 0, 500)
+}
 onMounted(() => {
-//   class ModalPlugin extends ScrollbarPlugin {
-//     static pluginName = "modal";
-
-  //     static defaultOptions = {
-  //       open: false,
-  //     };
-
-  //     transformDelta(delta) {
-  //       return this.options.open ? { x: 0, y: 0 } : delta;
-  //     }
-  //   }
-
-  //   Scrollbar.use(ModalPlugin);
-
+  console.log(headerAppElem.value)
   bodyScrollBar = Scrollbar.init(scroller.value, {
     damping: 0.1,
     delegateTo: scroller.value,
@@ -84,38 +68,6 @@ onMounted(() => {
   ScrollTrigger.defaults({ scroller: scroller.value })
 
   function setupScroller() {
-    // elements with overflow:auto
-    // const el = document.querySelectorAll('.hide-scroller');
-    // if (el.length > 0) {
-    //     el.forEach(item => {
-    //         {
-    //             [
-    //                 'touchmove',
-    //                 'mousewheel',
-    //                 'wheel',
-    //             ].forEach((eventType) => {
-    //                 item.addEventListener(eventType, (e) => e.stopPropagation());
-    //             });
-    //         }
-    //     })
-    // }
-
-    let initialPosition = bodyScrollBar.offset.y
-    let currentPosition = bodyScrollBar.offset.y
-
-    // sticky, fixed elements
-    bodyScrollBar.addListener(({ offset }) => {
-      currentPosition = offset.y
-
-      if (initialPosition <= currentPosition) {
-        appStateStore.makeHeaderHidden()
-      }
-      else {
-        appStateStore.makeHeaderVisible()
-      }
-      initialPosition = currentPosition
-    })
-
     // скроллить страницу наверх при смене роута
     watch(
       () => route.path,
@@ -140,6 +92,12 @@ onUnmounted(() => {
 .scroller {
   height: 100vh;
   overflow: hidden;
+}
+.layout__btn-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  // z-index: var(--header-index);
 }
 </style>
 

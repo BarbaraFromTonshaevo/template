@@ -5,32 +5,27 @@
       <slot />
     </div>
     <AppFooter />
+    <ButtonUp
+      class="layout__btn-up"
+      @click="scrollUp"
+    />
   </div>
 </template>
 
 <script setup>
-// import { ref } from "vue";
-import { useAppStateStore } from '~/stores/appState'
-
-const appStateStore = useAppStateStore()
-// const route = useRoute();
-
-let lastScrollY = 0 // Для хранения предыдущей позиции прокрутки
-const handleScroll = () => {
-  const currentScrollY = window.scrollY // Текущая позиция прокрутки
-  // Если мы прокручиваем вниз
-  if (currentScrollY > lastScrollY) {
-    appStateStore.makeHeaderHidden() // Скрыть шапку
-  }
-  else {
-    appStateStore.makeHeaderVisible() // Показать шапку
-  }
-  lastScrollY = currentScrollY // Обновляем последнюю позицию прокрутки
+function scrollUp() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  })
 }
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll) // Добавляем слушатель события
-})
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll) // Удаляем слушатель события
-})
 </script>
+
+<style scoped>
+.layout__btn-up{
+    position: fixed;
+    bottom: 50px;
+    right: var(--container-padding);
+}
+</style>

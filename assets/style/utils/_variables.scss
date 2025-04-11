@@ -50,7 +50,7 @@
   
 :root {
     --footer-bg: var(--bg-tertiary);
-    --header-bg: #F5F5F5;
+    --header-bg: var(--bg-light);
     --modal-bg: #2F2F2F;
     --system-alert: #CB2D2D;
     --marker: #CB2D2D;
@@ -62,14 +62,15 @@
     --br-s: 10px;
 
     --section-offset: 160px;
-
     --title-offset-m: 60px;
 
-    --header-height: 104px;
+    --header-height-body: 104px;
+    --header-height-gap: 24px;
+    --header-height: calc(var(--header-height-body) + var(--header-height-gap));
     --header-main-gap: 80px;
     --header-index: 2;
 
-    --container-padding: 80px;
+    --container-padding: 60px;
 
     // Шрифты
 
@@ -88,13 +89,14 @@
         --section-offset: 80px;
         --title-offset-m: 30px;
         --container-padding: 20px;
+        --header-height-body: 56px;
+        --header-height-gap: 0px;
     }
 }
 
 @include m.tablet-s {
     :root {
-      --header-height: 80px;
-      --header-main-gap: 40px;
+        
     }
 }
 

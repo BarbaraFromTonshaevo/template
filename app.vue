@@ -7,7 +7,9 @@
       <template #error="{ error }">
         <main class="main">
           <div class="container">
-            <h1 class="title-h1">Ошибка</h1>
+            <h1 class="title-h1">
+              Ошибка
+            </h1>
             <p>
               <code>{{ error }}</code>
             </p>
@@ -19,11 +21,11 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
-const device = useDevice();
-const layout = ref(device.isDesktop === true ? "scroller" : "default");
-// const layout = ref("default");
+const device = useDevice()
+const layout = ref(device.isDesktop === true ? 'scroller' : 'default')
+// const layout = ref('default')
 
 onMounted(() => {
 
@@ -35,10 +37,9 @@ onMounted(() => {
 //       document.body.classList.remove('no-scroll');
 //     }
 //   });
-});
+})
 
-
-//аналитика
+// аналитика
 // useHead({
 //   script: [],
 //   noscript: [],
